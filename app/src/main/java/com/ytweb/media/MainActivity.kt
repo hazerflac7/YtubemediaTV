@@ -22,12 +22,28 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         runtime = GeckoRuntime.create(this)
+
+        runtime.webExtensionController
+            .ensureBuiltIn(
+                "resource://android/assets/remote/",
+                "remote@ytubemediatv"
+            )
+            .accept(
+                {
+                    startYouTube()
+                },
+                {
+                    it.printStackTrace()
+                    startYouTube()
+                }
+            )
+    }
+
+    private fun startYouTube() {
         session = GeckoSession()
         session.open(runtime)
         view.setSession(session)
-
         view.requestFocus()
-
         session.loadUri("https://www.youtube.com/tv")
     }
 
@@ -44,7 +60,6 @@ class MainActivity : AppCompatActivity() {
                 KeyEvent.KEYCODE_MEDIA_PAUSE,
                 KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE -> {
                     view.requestFocus()
-                    return view.dispatchKeyEvent(event)
                 }
             }
         }

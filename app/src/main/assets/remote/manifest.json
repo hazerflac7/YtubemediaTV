@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "YtubemediaTV Remote",
+  "version": "1.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "remote@ytubemediatv"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*",
+        "*://youtube.com/*"
+      ],
+      "js": ["remote.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
