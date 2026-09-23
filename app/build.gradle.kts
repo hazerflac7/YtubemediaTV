@@ -21,5 +21,5 @@ android {
 dependencies {
     implementation("androidx.core:core-ktx:1.15.0")
     implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("org.mozilla.geckoview:geckoview:133.0.20241119150345")
+    implementation("org.mozilla.geckoview:geckoview:133.0.20241209150345")
 }
