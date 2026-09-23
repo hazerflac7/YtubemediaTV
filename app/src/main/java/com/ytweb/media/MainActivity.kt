@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                     startYouTube()
                 },
                 {
-                    it.printStackTrace()
+                    it?.printStackTrace()
                     startYouTube()
                 }
             )
